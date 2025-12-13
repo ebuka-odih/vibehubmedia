@@ -131,6 +131,7 @@ class Kernel implements KernelContract
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * @return void
      */
     public function __construct(Application $app, Dispatcher $events)
     {
@@ -162,13 +163,13 @@ class Kernel implements KernelContract
 
             $this->symfonyDispatcher->addListener(ConsoleEvents::COMMAND, function (ConsoleCommandEvent $event) {
                 $this->events->dispatch(
-                    new CommandStarting($event->getCommand()?->getName() ?? '', $event->getInput(), $event->getOutput())
+                    new CommandStarting($event->getCommand()->getName(), $event->getInput(), $event->getOutput())
                 );
             });
 
             $this->symfonyDispatcher->addListener(ConsoleEvents::TERMINATE, function (ConsoleTerminateEvent $event) {
                 $this->events->dispatch(
-                    new CommandFinished($event->getCommand()?->getName() ?? '', $event->getInput(), $event->getOutput(), $event->getExitCode())
+                    new CommandFinished($event->getCommand()->getName(), $event->getInput(), $event->getOutput(), $event->getExitCode())
                 );
             });
         }
@@ -366,7 +367,7 @@ class Kernel implements KernelContract
 
         $namespace = $this->app->getNamespace();
 
-        foreach ($this->findCommands($paths) as $file) {
+        foreach (Finder::create()->in($paths)->files() as $file) {
             $command = $this->commandClassFromFile($file, $namespace);
 
             if (is_subclass_of($command, Command::class) &&
@@ -376,17 +377,6 @@ class Kernel implements KernelContract
                 });
             }
         }
-    }
-
-    /**
-     * Get the Finder instance for discovering command files.
-     *
-     * @param  array  $paths
-     * @return \Symfony\Component\Finder\Finder
-     */
-    protected function findCommands(array $paths)
-    {
-        return Finder::create()->in($paths)->notName('*Test.php')->files();
     }
 
     /**
@@ -419,7 +409,7 @@ class Kernel implements KernelContract
     /**
      * Run an Artisan console command by name.
      *
-     * @param  \Symfony\Component\Console\Command\Command|string  $command
+     * @param  string  $command
      * @param  array  $parameters
      * @param  \Symfony\Component\Console\Output\OutputInterface|null  $outputBuffer
      * @return int

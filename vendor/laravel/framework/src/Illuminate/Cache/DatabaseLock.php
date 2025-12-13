@@ -44,7 +44,7 @@ class DatabaseLock extends Lock
      * @param  int  $seconds
      * @param  string|null  $owner
      * @param  array  $lottery
-     * @param  int  $defaultTimeoutInSeconds
+     * @return void
      */
     public function __construct(Connection $connection, $table, $name, $seconds, $owner = null, $lottery = [2, 100], $defaultTimeoutInSeconds = 86400)
     {
@@ -137,11 +137,11 @@ class DatabaseLock extends Lock
     /**
      * Returns the owner value written into the driver for this lock.
      *
-     * @return string|null
+     * @return string
      */
     protected function getCurrentOwner()
     {
-        return $this->connection->table($this->table)->where('key', $this->name)->first()?->owner;
+        return optional($this->connection->table($this->table)->where('key', $this->name)->first())->owner;
     }
 
     /**

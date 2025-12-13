@@ -45,20 +45,6 @@ class Password implements Rule, DataAwareRule, ValidatorAwareRule
     protected $max;
 
     /**
-     * If the password is required.
-     *
-     * @var bool
-     */
-    protected $required = false;
-
-    /**
-     * If the password should only be validated when present.
-     *
-     * @var bool
-     */
-    protected $sometimes = false;
-
-    /**
      * If the password requires at least one uppercase and one lowercase letter.
      *
      * @var bool
@@ -125,6 +111,7 @@ class Password implements Rule, DataAwareRule, ValidatorAwareRule
      * Create a new rule instance.
      *
      * @param  int  $min
+     * @return void
      */
     public function __construct($min)
     {
@@ -160,8 +147,8 @@ class Password implements Rule, DataAwareRule, ValidatorAwareRule
     public static function default()
     {
         $password = is_callable(static::$defaultCallback)
-            ? call_user_func(static::$defaultCallback)
-            : static::$defaultCallback;
+                            ? call_user_func(static::$defaultCallback)
+                            : static::$defaultCallback;
 
         return $password instanceof Rule ? $password : static::min(8);
     }
@@ -169,29 +156,21 @@ class Password implements Rule, DataAwareRule, ValidatorAwareRule
     /**
      * Get the default configuration of the password rule and mark the field as required.
      *
-     * @return static
+     * @return array
      */
     public static function required()
     {
-        $password = static::default();
-
-        $password->required = true;
-
-        return $password;
+        return ['required', static::default()];
     }
 
     /**
      * Get the default configuration of the password rule and mark the field as sometimes being required.
      *
-     * @return static
+     * @return array
      */
     public static function sometimes()
     {
-        $password = static::default();
-
-        $password->sometimes = true;
-
-        return $password;
+        return ['sometimes', static::default()];
     }
 
     /**
@@ -334,8 +313,6 @@ class Password implements Rule, DataAwareRule, ValidatorAwareRule
         $validator = Validator::make(
             $this->data,
             [$attribute => [
-                ...($this->required ? ['required'] : []),
-                ...($this->sometimes ? ['sometimes'] : []),
                 'string',
                 'min:'.$this->min,
                 ...($this->max ? ['max:'.$this->max] : []),
@@ -402,25 +379,5 @@ class Password implements Rule, DataAwareRule, ValidatorAwareRule
         $this->messages = array_merge($this->messages, Arr::wrap($messages));
 
         return false;
-    }
-
-    /**
-     * Get information about the current state of the password validation rules.
-     *
-     * @return array
-     */
-    public function appliedRules()
-    {
-        return [
-            'min' => $this->min,
-            'max' => $this->max,
-            'mixedCase' => $this->mixedCase,
-            'letters' => $this->letters,
-            'numbers' => $this->numbers,
-            'symbols' => $this->symbols,
-            'uncompromised' => $this->uncompromised,
-            'compromisedThreshold' => $this->compromisedThreshold,
-            'customRules' => $this->customRules,
-        ];
     }
 }
