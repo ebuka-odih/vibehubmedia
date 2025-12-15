@@ -313,18 +313,14 @@ Menu
 <img src="#" />
 </figure>
 </a>
-<a href='IT/search6ad5.html?utf8=%E2%9C%93&amp;q=ss26+temple#product-filters'>
 <video autoplay loop muted playsinline src='/img/1.MOV' style='width: 100%; height: auto' webkit-playsinline></video>
-</a>
 </article>
 <article class='desk'>
 <div data-background-video-url='/img/1.MOV' data-home-url='/home' id='wrapper_landing'>
 <div class='desktop'>
 <div class='col12 element pos-col1 pos-row1 row8'>
 <div class='item-element'>
-<a class=' hovering' href='IT/search6ad5.html?utf8=%E2%9C%93&amp;q=ss26+temple#product-filters'>
 <video autoplay loop muted playsinline src='/img/1.MOV' style='width: 100%; height: auto' webkit-playsinline></video>
-</a>
 </div>
 </div>
 </div>
