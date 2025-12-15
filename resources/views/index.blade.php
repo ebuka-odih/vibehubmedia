@@ -206,24 +206,34 @@ Menu
 <section class='controller_home_pages action_index' id='content'>
 <section class='bottom home-page-background'>
 <style>
-  /* Reduce banner height - moderate reduction */
+  /* Reduce banner height to medium size */
   .row8 {
-    max-height: 85vh !important;
-    height: 85vh !important;
+    max-height: 60vh !important;
+    height: 60vh !important;
   }
   
   .desk article .row8 video,
   .desk #wrapper_landing .row8 video {
-    max-height: 85vh !important;
+    max-height: 60vh !important;
     object-fit: cover !important;
   }
   
   .desk #wrapper_landing {
-    max-height: 85vh !important;
+    max-height: 60vh !important;
   }
   
   .desk article {
-    max-height: 85vh !important;
+    max-height: 60vh !important;
+  }
+  
+  /* Mobile banner height */
+  .mobile article video {
+    max-height: 60vh !important;
+    object-fit: cover !important;
+  }
+  
+  .mobile article {
+    max-height: 60vh !important;
   }
 </style>
 <script>
@@ -308,11 +318,6 @@ Menu
 </ul>
 </nav>
 <article class='mobile'>
-<a href='#'>
-<figure>
-<img src="#" />
-</figure>
-</a>
 <video autoplay loop muted playsinline src='/img/1.MOV' style='width: 100%; height: auto' webkit-playsinline></video>
 </article>
 <article class='desk'>
