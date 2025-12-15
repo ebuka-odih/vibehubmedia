@@ -554,7 +554,7 @@ Menu
 <article class='mobile'>
 <div style='display: flex;'>
 <a style="flex: 0 1 50%" href="IT/search003d.html?utf8=%E2%9C%93&amp;q=SELAHATIN+"><figure style='padding: 20px 10px 30px 10px'>
-<img src="https://cdn.rickowens.eu/home_page_images/144675/05.12.25_SELATHAIN_MOBILE.png?1764766305" alt="05.12.25 selathain mobile" />
+<img src="/img/2.JPG" alt="Selahatin" />
 </figure>
 </a><a style="flex: 0 1 50%" href="IT/searchf238.html?utf8=%E2%9C%93&amp;q=duvet"><figure style='padding: 20px 10px 30px 10px'>
 <img src="https://cdn.rickowens.eu/home_page_images/144030/13.10.25_-_HP_MOBILE_DUVET.jpg?1764758736" alt="13.10.25   hp mobile duvet" />
