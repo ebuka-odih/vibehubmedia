@@ -193,6 +193,10 @@ Menu
 <a class='js-submenu-link' href='#' target=''>About us</a>
 
 </section>
+<section class='container'>
+<a class='js-submenu-link' href='#' target=''>Collabs</a>
+
+</section>
 <section class='container mobile-extra js-account' data-signed-in-html='&lt;a href=_/en/ZA/account__My.html Account&lt;/a&gt;&lt;br&gt;&lt;a href=_/en/ZA/logout__Logout_/a_%27.html data-signed-out-html='&lt;a href=_/en/ZA/login__Login_/a_%27.html>
 <a class="profile-link" title="My Account" href="ZA/login.html"><span class='label'>My Account</span>
 </a></section>
@@ -201,6 +205,27 @@ Menu
 </header>
 <section class='controller_home_pages action_index' id='content'>
 <section class='bottom home-page-background'>
+<style>
+  /* Reduce banner height - moderate reduction */
+  .row8 {
+    max-height: 85vh !important;
+    height: 85vh !important;
+  }
+  
+  .desk article .row8 video,
+  .desk #wrapper_landing .row8 video {
+    max-height: 85vh !important;
+    object-fit: cover !important;
+  }
+  
+  .desk #wrapper_landing {
+    max-height: 85vh !important;
+  }
+  
+  .desk article {
+    max-height: 85vh !important;
+  }
+</style>
 <script>
   $(document).ready( function() {
     return;
@@ -237,6 +262,8 @@ Menu
 
 <a class='js-submenu-link' href='#' target=''>About us</a>
 
+<a class='js-submenu-link' href='#' target=''>Collabs</a>
+
 </div>
 </li>
 <li class='custom-item'>
@@ -250,6 +277,9 @@ Menu
 </li>
 <li class='custom-item'>
 <a href='#'>About us</a>
+</li>
+<li class='custom-item'>
+<a href='#'>Collabs</a>
 </li>
 </ul>
 </li>
@@ -451,6 +481,9 @@ Menu
 </li>
 <li class=''>
 <a href="#">About us</a>
+</li>
+<li class=''>
+<a href="#">Collabs</a>
 </li>
 </ul>
 </aside>

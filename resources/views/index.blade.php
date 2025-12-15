@@ -205,6 +205,27 @@ Menu
 </header>
 <section class='controller_home_pages action_index' id='content'>
 <section class='bottom home-page-background'>
+<style>
+  /* Reduce banner height - moderate reduction */
+  .row8 {
+    max-height: 85vh !important;
+    height: 85vh !important;
+  }
+  
+  .desk article .row8 video,
+  .desk #wrapper_landing .row8 video {
+    max-height: 85vh !important;
+    object-fit: cover !important;
+  }
+  
+  .desk #wrapper_landing {
+    max-height: 85vh !important;
+  }
+  
+  .desk article {
+    max-height: 85vh !important;
+  }
+</style>
 <script>
   $(document).ready( function() {
     return;
