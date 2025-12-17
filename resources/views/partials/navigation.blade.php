@@ -70,7 +70,7 @@
 
 <a class='js-submenu-link' href='/contact' target=''>Contact</a>
 
-<a class='js-submenu-link' href='#' target=''>About us</a>
+<a class='js-submenu-link' href='/about' target=''>About us</a>
 
 <a class='js-submenu-link' href='#' target=''>Collabs</a>
 

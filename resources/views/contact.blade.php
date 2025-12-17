@@ -16,14 +16,14 @@
                 <div class="contact-item" style="margin-bottom: 1.5rem;">
                     <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; color: #666;">Phone</h3>
                     <a href="tel:+27738865103" style="color: #000; text-decoration: none; font-size: 1.1rem; display: inline-block;">
-                        +27738865103
+                        07738865103
                     </a>
                 </div>
                 
                 <div class="contact-item" style="margin-bottom: 1.5rem;">
                     <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; color: #666;">WhatsApp</h3>
                     <a href="https://wa.me/27738865103" target="_blank" style="color: #25D366; text-decoration: none; font-size: 1.1rem; display: inline-block;">
-                        +27738865103
+                        07738865103
                     </a>
                 </div>
                 
@@ -42,15 +42,15 @@
                 <div class="social-links" style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
                     <div class="social-item">
                         <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; color: #666;">Instagram</h3>
-                        <a href="https://instagram.com/vibehubmedia" target="_blank" style="color: #E4405F; text-decoration: none; font-size: 1.1rem; display: inline-block;">
-                            @vibehubmedia
+                        <a href="https://instagram.com/vibehub.media" target="_blank" style="color: #E4405F; text-decoration: none; font-size: 1.1rem; display: inline-block;">
+                            IG vibehub.media
                         </a>
                     </div>
                     
                     <div class="social-item">
                         <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; color: #666;">TikTok</h3>
                         <a href="https://tiktok.com/@vibehubmedia" target="_blank" style="color: #000; text-decoration: none; font-size: 1.1rem; display: inline-block;">
-                            @vibehubmedia
+                            TikTok Vibehubmedia
                         </a>
                     </div>
                 </div>
