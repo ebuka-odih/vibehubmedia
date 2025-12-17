@@ -7,3 +7,8 @@ Route::get('/', function () {
     return view('index');
 });
 
+// Contact page route
+Route::get('/contact', function () {
+    return view('contact');
+});
+
