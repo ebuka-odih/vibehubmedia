@@ -9,6 +9,15 @@
     text-decoration: none;
     color: black;
     font-weight: normal;
+    pointer-events: auto !important;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Ensure mobile menu links are clickable */
+  nav.menu .container {
+    pointer-events: auto !important;
   }
 </style>
 <header id='header'>
@@ -99,7 +108,7 @@ Menu
 
 </section>
 <section class='container'>
-<a class='js-submenu-link' href='#' target=''>About us</a>
+<a class='js-submenu-link' href='/about' target=''>About us</a>
 
 </section>
 <section class='container'>
