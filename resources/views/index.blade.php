@@ -46,22 +46,22 @@
   @media only screen and (min-width: 760px) {
     .wall-section-men #item-men-2 {
       position: absolute;
-      padding-top: 80% !important;
-      left: 0% !important;
-      width: 100% !important; }
+      padding-top: 4% !important;
+      left: 52% !important;
+      width: 46% !important; }
       .wall-section-men #item-men-2 h2 {
         position: relative;
-        margin-left: 1% !important; } }
+        margin-left: 0% !important; } }
   @media only screen and (max-width: 760px) {
     .wall-section-men #item-men-2 h2 {
-      margin-left: 1% !important; } }
+      margin-left: 0% !important; } }
 </style>
 <style>
   @media only screen and (min-width: 760px) {
     .wall-section-men #item-men-3 {
       position: absolute;
-      padding-top: 4% !important;
-      left: 52% !important;
+      padding-top: 66% !important;
+      left: 3% !important;
       width: 46% !important; }
       .wall-section-men #item-men-3 h2 {
         position: relative;
@@ -75,7 +75,7 @@
     .wall-section-men #item-men-4 {
       position: absolute;
       padding-top: 66% !important;
-      left: 3% !important;
+      left: 52% !important;
       width: 46% !important; }
       .wall-section-men #item-men-4 h2 {
         position: relative;
@@ -189,13 +189,13 @@
 </a></div>
 {{-- Section 2 --}}
 <div class='image' id='item-men-2'>
-<a href="#"><figure>
+<a href="#"><figure style='position: relative; width: 100%; padding-bottom: 125%; overflow: hidden;'>
 @php
     $section2Media = $sectionMedia[2] ?? null;
     $section2Src = $section2Media ? $section2Media->url : $defaultImages[2]['src'];
     $section2Alt = $section2Media ? ($section2Media->alt_text ?? $section2Media->original_filename) : $defaultImages[2]['alt'];
 @endphp
-<img class="first-img " src="{{ $section2Src }}" alt="{{ $section2Alt }}" />
+<img class="first-img" src="{{ $section2Src }}" alt="{{ $section2Alt }}" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
 <h2></h2>
 </figure>
 </a></div>
@@ -212,17 +212,7 @@
 </figure>
 </a></div>
 {{-- Section 4 --}}
-<div class='image' id='item-men-4'>
-<a href="#"><figure style='position: relative; width: 100%; padding-bottom: 125%; overflow: hidden;'>
-@php
-    $section4Media = $sectionMedia[4] ?? null;
-    $section4Src = $section4Media ? $section4Media->url : $defaultImages[4]['src'];
-    $section4Alt = $section4Media ? ($section4Media->alt_text ?? $section4Media->original_filename) : $defaultImages[4]['alt'];
-@endphp
-<img class="first-img" src="{{ $section4Src }}" alt="{{ $section4Alt }}" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
-<h2></h2>
-</figure>
-</a></div>
+<div class='image' id='item-men-4' style='display: none;'></div>
 {{-- Section 5 --}}
 <div class='image' id='item-men-5'>
 <a href="#"><figure>
@@ -244,13 +234,13 @@
 </a></div>
 {{-- Section 6 --}}
 <div class='image' id='item-men-6'>
-<a href="#"><figure>
+<a href="#"><figure style='position: relative; width: 100%; padding-bottom: 125%; overflow: hidden;'>
 @php
     $section6Media = $sectionMedia[6] ?? null;
     $section6Src = $section6Media ? $section6Media->url : $defaultImages[6]['src'];
     $section6Alt = $section6Media ? ($section6Media->alt_text ?? $section6Media->original_filename) : $defaultImages[6]['alt'];
 @endphp
-<img class="first-img " src="{{ $section6Src }}" alt="{{ $section6Alt }}" />
+<img class="first-img" src="{{ $section6Src }}" alt="{{ $section6Alt }}" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
 <h2></h2>
 </figure>
 </a></div>

@@ -44,22 +44,22 @@
   @media only screen and (min-width: 760px) {
     .wall-section-men #item-men-2 {
       position: absolute;
-      padding-top: 80% !important;
-      left: 0% !important;
-      width: 100% !important; }
+      padding-top: 4% !important;
+      left: 52% !important;
+      width: 46% !important; }
       .wall-section-men #item-men-2 h2 {
         position: relative;
-        margin-left: 1% !important; } }
+        margin-left: 0% !important; } }
   @media only screen and (max-width: 760px) {
     .wall-section-men #item-men-2 h2 {
-      margin-left: 1% !important; } }
+      margin-left: 0% !important; } }
 </style>
 <style>
   @media only screen and (min-width: 760px) {
     .wall-section-men #item-men-3 {
       position: absolute;
-      padding-top: 4% !important;
-      left: 52% !important;
+      padding-top: 66% !important;
+      left: 3% !important;
       width: 46% !important; }
       .wall-section-men #item-men-3 h2 {
         position: relative;
@@ -73,7 +73,7 @@
     .wall-section-men #item-men-4 {
       position: absolute;
       padding-top: 66% !important;
-      left: 3% !important;
+      left: 52% !important;
       width: 46% !important; }
       .wall-section-men #item-men-4 h2 {
         position: relative;
@@ -166,9 +166,9 @@
 <?php
     $defaultImages = [
         1 => ['src' => '/img/2.JPG', 'alt' => 'Selahatin'],
-        2 => ['src' => 'https://cdn.rickowens.eu/home_page_images/143997/RIQUADRO_BIANCO.png?1764758711', 'alt' => 'Riquadro bianco'],
-        3 => ['src' => '/img/3.JPG', 'alt' => 'Image 3'],
-        4 => ['src' => '/img/4.JPG', 'alt' => 'Image 4'],
+        2 => ['src' => '/img/3.JPG', 'alt' => 'Image 3'],
+        3 => ['src' => '/img/4.JPG', 'alt' => 'Image 4'],
+        4 => ['src' => 'https://cdn.rickowens.eu/home_page_images/143997/RIQUADRO_BIANCO.png?1764758711', 'alt' => 'Riquadro bianco'],
         5 => ['src' => 'https://cdn.rickowens.eu/home_page_images/144202/CANDLE_MOUSEOVER_1080_X_1350.png?1764758896', 'alt' => 'Candle mouseover 1080 x 1350', 'video' => 'https://player.vimeo.com/progressive_redirect/playback/1135356788/rendition/720p/file.mp4 (720p).mp4?loc=external&signature=564a2c2795873ce08f61c28e6bd2fde8ba0cddff4742b61c7aef99b361a0370d'],
         6 => ['src' => 'https://cdn.rickowens.eu/home_page_images/143997/RIQUADRO_BIANCO.png?1764758711', 'alt' => 'Riquadro bianco'],
     ];
@@ -187,13 +187,13 @@
 </a></div>
 
 <div class='image' id='item-men-2'>
-<a href="#"><figure>
+<a href="#"><figure style='position: relative; width: 100%; padding-bottom: 125%; overflow: hidden;'>
 <?php
     $section2Media = $sectionMedia[2] ?? null;
     $section2Src = $section2Media ? $section2Media->url : $defaultImages[2]['src'];
     $section2Alt = $section2Media ? ($section2Media->alt_text ?? $section2Media->original_filename) : $defaultImages[2]['alt'];
 ?>
-<img class="first-img " src="<?php echo e($section2Src); ?>" alt="<?php echo e($section2Alt); ?>" />
+<img class="first-img" src="<?php echo e($section2Src); ?>" alt="<?php echo e($section2Alt); ?>" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
 <h2></h2>
 </figure>
 </a></div>
@@ -210,17 +210,7 @@
 </figure>
 </a></div>
 
-<div class='image' id='item-men-4'>
-<a href="#"><figure style='position: relative; width: 100%; padding-bottom: 125%; overflow: hidden;'>
-<?php
-    $section4Media = $sectionMedia[4] ?? null;
-    $section4Src = $section4Media ? $section4Media->url : $defaultImages[4]['src'];
-    $section4Alt = $section4Media ? ($section4Media->alt_text ?? $section4Media->original_filename) : $defaultImages[4]['alt'];
-?>
-<img class="first-img" src="<?php echo e($section4Src); ?>" alt="<?php echo e($section4Alt); ?>" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
-<h2></h2>
-</figure>
-</a></div>
+<div class='image' id='item-men-4' style='display: none;'></div>
 
 <div class='image' id='item-men-5'>
 <a href="#"><figure>
@@ -242,13 +232,13 @@
 </a></div>
 
 <div class='image' id='item-men-6'>
-<a href="#"><figure>
+<a href="#"><figure style='position: relative; width: 100%; padding-bottom: 125%; overflow: hidden;'>
 <?php
     $section6Media = $sectionMedia[6] ?? null;
     $section6Src = $section6Media ? $section6Media->url : $defaultImages[6]['src'];
     $section6Alt = $section6Media ? ($section6Media->alt_text ?? $section6Media->original_filename) : $defaultImages[6]['alt'];
 ?>
-<img class="first-img " src="<?php echo e($section6Src); ?>" alt="<?php echo e($section6Alt); ?>" />
+<img class="first-img" src="<?php echo e($section6Src); ?>" alt="<?php echo e($section6Alt); ?>" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
 <h2></h2>
 </figure>
 </a></div>
@@ -296,9 +286,9 @@
         1 => ['src' => '/img/2.JPG', 'alt' => 'Selahatin'],
         2 => ['src' => '/img/3.JPG', 'alt' => 'Image 3'],
         3 => ['src' => '/img/4.JPG', 'alt' => 'Image 4'],
-        4 => ['src' => 'https://cdn.rickowens.eu/home_page_images/144203/18.11.25_CANDLE_MOBILE_HP.png?1764758897', 'alt' => '18.11.25 candle mobile hp'],
-        5 => ['src' => 'https://cdn.rickowens.eu/home_page_images/144041/22.09.25_HP_MOBILE_EXCLUSIVE.jpg?1764758741', 'alt' => '22.09.25 hp mobile exclusive'],
-        6 => ['src' => 'https://cdn.rickowens.eu/home_page_images/144678/05.12.25_BAGS_HP_MOBILE.png?1764773448', 'alt' => '05.12.25 bags hp mobile'],
+        4 => ['src' => 'https://cdn.rickowens.eu/home_page_images/143997/RIQUADRO_BIANCO.png?1764758711', 'alt' => 'Riquadro bianco'],
+        5 => ['src' => 'https://cdn.rickowens.eu/home_page_images/144203/18.11.25_CANDLE_MOBILE_HP.png?1764758897', 'alt' => '18.11.25 candle mobile hp'],
+        6 => ['src' => 'https://cdn.rickowens.eu/home_page_images/144041/22.09.25_HP_MOBILE_EXCLUSIVE.jpg?1764758741', 'alt' => '22.09.25 hp mobile exclusive'],
     ];
 ?>
 <div style='display: flex; align-items: stretch;'>
