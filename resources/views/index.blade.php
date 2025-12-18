@@ -165,42 +165,92 @@
 <div class='canvas-height' style='background: none !important; background-image: none !important;'></div>
 <figure class='images'>
 <div class='container-images'>
+@php
+    $defaultImages = [
+        1 => ['src' => '/img/2.JPG', 'alt' => 'Selahatin'],
+        2 => ['src' => '/img/3.JPG', 'alt' => 'Image 3'],
+        3 => ['src' => '/img/4.JPG', 'alt' => 'Image 4'],
+        4 => ['src' => 'https://cdn.rickowens.eu/home_page_images/143997/RIQUADRO_BIANCO.png?1764758711', 'alt' => 'Riquadro bianco'],
+        5 => ['src' => 'https://cdn.rickowens.eu/home_page_images/144202/CANDLE_MOUSEOVER_1080_X_1350.png?1764758896', 'alt' => 'Candle mouseover 1080 x 1350', 'video' => 'https://player.vimeo.com/progressive_redirect/playback/1135356788/rendition/720p/file.mp4 (720p).mp4?loc=external&signature=564a2c2795873ce08f61c28e6bd2fde8ba0cddff4742b61c7aef99b361a0370d'],
+        6 => ['src' => 'https://cdn.rickowens.eu/home_page_images/143997/RIQUADRO_BIANCO.png?1764758711', 'alt' => 'Riquadro bianco'],
+    ];
+@endphp
+{{-- Section 1 --}}
 <div class='image' id='item-men-1'>
 <a href="#"><figure style='position: relative; width: 100%; padding-bottom: 125%; overflow: hidden;'>
-<img class="first-img" src="/img/2.JPG" alt="Selahatin" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
+@php
+    $section1Media = $sectionMedia[1] ?? null;
+    $section1Src = $section1Media ? $section1Media->url : $defaultImages[1]['src'];
+    $section1Alt = $section1Media ? ($section1Media->alt_text ?? $section1Media->original_filename) : $defaultImages[1]['alt'];
+@endphp
+<img class="first-img" src="{{ $section1Src }}" alt="{{ $section1Alt }}" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
 <h2></h2>
 </figure>
 </a></div>
+{{-- Section 2 --}}
 <div class='image' id='item-men-2'>
 <a href="#"><figure>
-<img class="first-img " src="https://cdn.rickowens.eu/home_page_images/143997/RIQUADRO_BIANCO.png?1764758711" alt="Riquadro bianco" />
-
+@php
+    $section2Media = $sectionMedia[2] ?? null;
+    $section2Src = $section2Media ? $section2Media->url : $defaultImages[2]['src'];
+    $section2Alt = $section2Media ? ($section2Media->alt_text ?? $section2Media->original_filename) : $defaultImages[2]['alt'];
+@endphp
+<img class="first-img " src="{{ $section2Src }}" alt="{{ $section2Alt }}" />
 <h2></h2>
 </figure>
 </a></div>
+{{-- Section 3 --}}
 <div class='image' id='item-men-3'>
 <a href="#"><figure style='position: relative; width: 100%; padding-bottom: 125%; overflow: hidden;'>
-<img class="first-img" src="/img/3.JPG" alt="Image 3" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
+@php
+    $section3Media = $sectionMedia[3] ?? null;
+    $section3Src = $section3Media ? $section3Media->url : $defaultImages[3]['src'];
+    $section3Alt = $section3Media ? ($section3Media->alt_text ?? $section3Media->original_filename) : $defaultImages[3]['alt'];
+@endphp
+<img class="first-img" src="{{ $section3Src }}" alt="{{ $section3Alt }}" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
 <h2></h2>
 </figure>
 </a></div>
+{{-- Section 4 --}}
 <div class='image' id='item-men-4'>
 <a href="#"><figure style='position: relative; width: 100%; padding-bottom: 125%; overflow: hidden;'>
-<img class="first-img" src="/img/4.JPG" alt="Image 4" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
+@php
+    $section4Media = $sectionMedia[4] ?? null;
+    $section4Src = $section4Media ? $section4Media->url : $defaultImages[4]['src'];
+    $section4Alt = $section4Media ? ($section4Media->alt_text ?? $section4Media->original_filename) : $defaultImages[4]['alt'];
+@endphp
+<img class="first-img" src="{{ $section4Src }}" alt="{{ $section4Alt }}" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
 <h2></h2>
 </figure>
 </a></div>
+{{-- Section 5 --}}
 <div class='image' id='item-men-5'>
 <a href="#"><figure>
-<video autoplay loop muted playsinline poster='https://cdn.rickowens.eu/home_page_images/144202/CANDLE_MOUSEOVER_1080_X_1350.png?1764758896' src='https://player.vimeo.com/progressive_redirect/playback/1135356788/rendition/720p/file.mp4 (720p).mp4?loc=external&amp;signature=564a2c2795873ce08f61c28e6bd2fde8ba0cddff4742b61c7aef99b361a0370d' style='width: 100%; height: auto' webkit-playsinline></video>
-<img class="secondary-img" src="https://cdn.rickowens.eu/home_page_images/144202/CANDLE_MOUSEOVER_1080_X_1350.png?1764758896" alt="Candle mouseover 1080 x 1350" />
+@php
+    $section5Media = $sectionMedia[5] ?? null;
+    $section5Src = $section5Media ? $section5Media->url : $defaultImages[5]['src'];
+    $section5Alt = $section5Media ? ($section5Media->alt_text ?? $section5Media->original_filename) : $defaultImages[5]['alt'];
+@endphp
+@if($section5Media)
+    {{-- Custom uploaded image replaces video --}}
+    <img class="first-img" src="{{ $section5Src }}" alt="{{ $section5Alt }}" style='width: 100%; height: auto' />
+@else
+    {{-- Default video --}}
+    <video autoplay loop muted playsinline poster='{{ $defaultImages[5]['src'] }}' src='{{ $defaultImages[5]['video'] }}' style='width: 100%; height: auto' webkit-playsinline></video>
+    <img class="secondary-img" src="{{ $defaultImages[5]['src'] }}" alt="{{ $defaultImages[5]['alt'] }}" />
+@endif
 <h2></h2>
 </figure>
 </a></div>
+{{-- Section 6 --}}
 <div class='image' id='item-men-6'>
 <a href="#"><figure>
-<img class="first-img " src="https://cdn.rickowens.eu/home_page_images/143997/RIQUADRO_BIANCO.png?1764758711" alt="Riquadro bianco" />
-
+@php
+    $section6Media = $sectionMedia[6] ?? null;
+    $section6Src = $section6Media ? $section6Media->url : $defaultImages[6]['src'];
+    $section6Alt = $section6Media ? ($section6Media->alt_text ?? $section6Media->original_filename) : $defaultImages[6]['alt'];
+@endphp
+<img class="first-img " src="{{ $section6Src }}" alt="{{ $section6Alt }}" />
 <h2></h2>
 </figure>
 </a></div>
@@ -243,28 +293,62 @@
 </style>
 <section class='home-page-wall men_section mobile' style='background: none !important; background-image: none !important;'>
 <article class='mobile'>
+@php
+    $mobileDefaults = [
+        1 => ['src' => '/img/2.JPG', 'alt' => 'Selahatin'],
+        2 => ['src' => '/img/3.JPG', 'alt' => 'Image 3'],
+        3 => ['src' => '/img/4.JPG', 'alt' => 'Image 4'],
+        4 => ['src' => 'https://cdn.rickowens.eu/home_page_images/143997/RIQUADRO_BIANCO.png?1764758711', 'alt' => 'Riquadro bianco'],
+        5 => ['src' => 'https://cdn.rickowens.eu/home_page_images/144203/18.11.25_CANDLE_MOBILE_HP.png?1764758897', 'alt' => '18.11.25 candle mobile hp'],
+        6 => ['src' => 'https://cdn.rickowens.eu/home_page_images/144041/22.09.25_HP_MOBILE_EXCLUSIVE.jpg?1764758741', 'alt' => '22.09.25 hp mobile exclusive'],
+    ];
+@endphp
 <div style='display: flex; align-items: stretch;'>
+@php
+    $mobile1Media = $sectionMedia[1] ?? null;
+    $mobile1Src = $mobile1Media ? $mobile1Media->url : $mobileDefaults[1]['src'];
+    $mobile1Alt = $mobile1Media ? ($mobile1Media->alt_text ?? $mobile1Media->original_filename) : $mobileDefaults[1]['alt'];
+    $mobile2Media = $sectionMedia[2] ?? null;
+    $mobile2Src = $mobile2Media ? $mobile2Media->url : $mobileDefaults[2]['src'];
+    $mobile2Alt = $mobile2Media ? ($mobile2Media->alt_text ?? $mobile2Media->original_filename) : $mobileDefaults[2]['alt'];
+@endphp
 <a style="flex: 0 1 50%" href="#"><figure style='padding: 20px 10px 30px 10px; margin: 0; height: 100%; display: flex; align-items: stretch;'>
-<img src="/img/2.JPG" alt="Selahatin" style='width: 100%; height: 100%; object-fit: cover;' />
+<img src="{{ $mobile1Src }}" alt="{{ $mobile1Alt }}" style='width: 100%; height: 100%; object-fit: cover;' />
 </figure>
 </a><a style="flex: 0 1 50%" href="#"><figure style='padding: 20px 10px 30px 10px; margin: 0; height: 100%; display: flex; align-items: stretch;'>
-<img src="/img/3.JPG" alt="Image 3" style='width: 100%; height: 100%; object-fit: cover;' />
+<img src="{{ $mobile2Src }}" alt="{{ $mobile2Alt }}" style='width: 100%; height: 100%; object-fit: cover;' />
 </figure>
 </a></div>
 <div style='display: flex;'>
+@php
+    $mobile3Media = $sectionMedia[3] ?? null;
+    $mobile3Src = $mobile3Media ? $mobile3Media->url : $mobileDefaults[3]['src'];
+    $mobile3Alt = $mobile3Media ? ($mobile3Media->alt_text ?? $mobile3Media->original_filename) : $mobileDefaults[3]['alt'];
+    $mobile4Media = $sectionMedia[4] ?? null;
+    $mobile4Src = $mobile4Media ? $mobile4Media->url : $mobileDefaults[4]['src'];
+    $mobile4Alt = $mobile4Media ? ($mobile4Media->alt_text ?? $mobile4Media->original_filename) : $mobileDefaults[4]['alt'];
+@endphp
 <a style="flex: 0 1 50%" href="#"><figure style='padding: 20px 10px 30px 10px'>
-<img src="/img/4.JPG" alt="Image 4" />
+<img src="{{ $mobile3Src }}" alt="{{ $mobile3Alt }}" />
 </figure>
 </a><a style="flex: 0 1 50%" href="#"><figure style='padding: 20px 10px 30px 10px'>
-<img src="https://cdn.rickowens.eu/home_page_images/144203/18.11.25_CANDLE_MOBILE_HP.png?1764758897" alt="18.11.25 candle mobile hp" />
+<img src="{{ $mobile4Src }}" alt="{{ $mobile4Alt }}" />
 </figure>
 </a></div>
 <div style='display: flex;'>
+@php
+    $mobile5Media = $sectionMedia[5] ?? null;
+    $mobile5Src = $mobile5Media ? $mobile5Media->url : $mobileDefaults[5]['src'];
+    $mobile5Alt = $mobile5Media ? ($mobile5Media->alt_text ?? $mobile5Media->original_filename) : $mobileDefaults[5]['alt'];
+    $mobile6Media = $sectionMedia[6] ?? null;
+    $mobile6Src = $mobile6Media ? $mobile6Media->url : $mobileDefaults[6]['src'];
+    $mobile6Alt = $mobile6Media ? ($mobile6Media->alt_text ?? $mobile6Media->original_filename) : $mobileDefaults[6]['alt'];
+@endphp
 <a style="flex: 0 1 50%" href="#"><figure style='padding: 20px 10px 30px 10px'>
-<img src="https://cdn.rickowens.eu/home_page_images/144041/22.09.25_HP_MOBILE_EXCLUSIVE.jpg?1764758741" alt="22.09.25 hp mobile exclusive" />
+<img src="{{ $mobile5Src }}" alt="{{ $mobile5Alt }}" />
 </figure>
 </a><a style="flex: 0 1 50%" href="#"><figure style='padding: 20px 10px 30px 10px'>
-<img src="https://cdn.rickowens.eu/home_page_images/144678/05.12.25_BAGS_HP_MOBILE.png?1764773448" alt="05.12.25 bags hp mobile" />
+<img src="{{ $mobile6Src }}" alt="{{ $mobile6Alt }}" />
 </figure>
 </a></div>
 </article>

@@ -21,20 +21,14 @@ if(typeof window[n]!=="function"){window[n]=e;if(window.addEventListener){window
 </style>
 <meta charset='utf-8'>
 <title>Creative Agency</title>
-<meta name="keywords" content="RICK OWENS, RICK OWENS ONLINE, RICK OWENS SHOP, RICKOWENS.EU, DRKSHDW, RICK OWENS SNEAKERS, GEOBASKET, RICK OWENS JACKETS, RICK OWENS SHOES, RICK OWENS ADIDAS," />
-<meta name="description" content="Shop the latest Rick Owens menswear, womenswear, shoes and accessories now on the official Rick Owens online store with worldwide express shipping." />
+<meta name="keywords" content="Vibe Hub Media, creative agency, content platform, brand storytelling, digital marketing, media solutions, content creation, creator platform, brand strategy, content strategy, digital content, social media content, video production, photography, graphic design, web design, creative consulting" />
+<meta name="description" content="Vibe Hub Media is a creative agency and content platform focused on helping brands and creators stand out in the digital world. We deliver high quality content, strategic storytelling, and innovative media solutions." />
 <meta name="csrf-param" content="authenticity_token" />
 <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
 <meta content='true' name='cache_cart_for_session'>
 <link rel="shortcut icon" type="image/x-icon" href="https://cdn-assets.net2b.eu/assets/rickowens/favicon-95d698b60afe42aaf34a4cca4372e9a35b3811edbd4b0780752118ca8cafbdaa.ico" />
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
-<meta content='https://www.rickowens.eu/en/ZA/cart' name='CART_PATH'>
-<meta content='https://www.rickowens.eu/en/ZA/checkout' name='CHECKOUT_PATH'>
-<meta content='https://www.rickowens.eu/en/ZA/men' name='MALE_HOME_PATH'>
-<meta content='https://www.rickowens.eu/en/ZA/women' name='FEMALE_HOME_PATH'>
-<meta content='174' name='country_id'>
-<meta content='false' name='SKIP_AJAX_CART'>
-<meta content='false' name='SKIP_AJAX_SIZES'>
+
 <link rel="stylesheet" media="all" href="https://cdn-assets.net2b.eu/assets/rickowens/application-5ecd0a2a9a39b8aff0ced368764dab68f3f2180b8d6b2085d1d22614951c3b9d.css" data-turbolinks-track="true" />
 
 
