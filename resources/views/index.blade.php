@@ -150,7 +150,7 @@
 <a href="#">Social media</a>
 </li>
 <li class=''>
-<a href="/contact">Contact</a>
+<a href="{{ route('contact') }}">Contact</a>
 </li>
 <li class=''>
 <a href="#">About us</a>

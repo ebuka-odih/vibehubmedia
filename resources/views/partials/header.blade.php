@@ -61,7 +61,7 @@
 </li>
 </ul>
 <header class='logo'>
-<a title="Rickowens" href="/"><h1><!-- asset: rickowens/rickowens_logo.svg -->
+<a title="Rickowens" href="{{ route('home') }}"><h1><!-- asset: rickowens/rickowens_logo.svg -->
 <svg width="300" height="50" viewBox="0 0 1250 209" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
     <g transform="matrix(4.16667,0,0,4.16667,0,0)">
         <g transform="matrix(0.24,-0,-0,0.24,0,0)">
@@ -104,11 +104,11 @@ Menu
 
 </section>
 <section class='container'>
-<a class='js-submenu-link' href='/contact' target=''>Contact</a>
+<a class='js-submenu-link' href='{{ route("contact") }}' target=''>Contact</a>
 
 </section>
 <section class='container'>
-<a class='js-submenu-link' href='/about' target=''>About us</a>
+<a class='js-submenu-link' href='{{ route("about") }}' target=''>About us</a>
 
 </section>
 <section class='container'>
