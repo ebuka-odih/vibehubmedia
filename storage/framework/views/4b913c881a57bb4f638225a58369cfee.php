@@ -10,12 +10,6 @@
     color: black;
     font-weight: normal;
   }
-  
-  nav.menu .container:not(:last-of-type)::after {
-    content: '|';
-    padding: 0 0.5rem;
-    color: black;
-  }
 </style>
 <header id='header'>
 <a class='opacity-overlay' href='#close' id='overlay' title='close'></a>

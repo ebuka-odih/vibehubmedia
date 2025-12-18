@@ -179,16 +179,14 @@
 </figure>
 </a></div>
 <div class='image' id='item-men-3'>
-<a href="IT/searchf238.html?utf8=%E2%9C%93&amp;q=duvet"><figure>
-<video autoplay loop muted playsinline poster='https://cdn.rickowens.eu/home_page_images/144062/_MOUSE_1080X1350_DUVET.png?1764758758' src='https://player.vimeo.com/progressive_redirect/playback/1126787233/rendition/1080p/file.mp4?loc=external&amp;signature=548269d9002f92008383b2b798ecf7df2a3aa402b57e1b52d4b221c7423bab19' style='width: 100%; height: auto' webkit-playsinline></video>
-<img class="secondary-img" src="https://cdn.rickowens.eu/home_page_images/144062/_MOUSE_1080X1350_DUVET.png?1764758758" alt=" mouse 1080x1350 duvet" />
+<a href="IT/searchf238.html?utf8=%E2%9C%93&amp;q=duvet"><figure style='position: relative; width: 100%; padding-bottom: 125%; overflow: hidden;'>
+<img class="first-img" src="/img/3.JPG" alt="Image 3" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
 <h2></h2>
 </figure>
 </a></div>
 <div class='image' id='item-men-4'>
-<a href="IT/search5d76.html?utf8=%E2%9C%93&amp;q=JAPAN"><figure>
-<video autoplay loop muted playsinline poster='https://cdn.rickowens.eu/home_page_images/143743/MADE_IN_JP_MOUSEOVER_1080_X_1350.png?1764758450' src='https://player.vimeo.com/progressive_redirect/playback/1133476526/rendition/1080p/file.mp4?loc=external&amp;signature=0403e7a582022ec259d2c0a329e88d4fa04d302282dfcc3b77dfe987fd88abef' style='width: 100%; height: auto' webkit-playsinline></video>
-<img class="secondary-img" src="https://cdn.rickowens.eu/home_page_images/143743/MADE_IN_JP_MOUSEOVER_1080_X_1350.png?1764758450" alt="Made in jp mouseover 1080 x 1350" />
+<a href="IT/search5d76.html?utf8=%E2%9C%93&amp;q=JAPAN"><figure style='position: relative; width: 100%; padding-bottom: 125%; overflow: hidden;'>
+<img class="first-img" src="/img/4.JPG" alt="Image 4" style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' />
 <h2></h2>
 </figure>
 </a></div>
@@ -227,19 +225,35 @@
 </article>
 
 </section>
+<style>
+  .home-page-wall.men_section.mobile .mobile > div:first-child figure {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+  }
+  .home-page-wall.men_section.mobile .mobile > div:first-child img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .home-page-wall.men_section.mobile .mobile > div:first-child a {
+    display: flex;
+    align-items: stretch;
+  }
+</style>
 <section class='home-page-wall men_section mobile' style='background: none !important; background-image: none !important;'>
 <article class='mobile'>
-<div style='display: flex;'>
-<a style="flex: 0 1 50%" href="IT/search003d.html?utf8=%E2%9C%93&amp;q=SELAHATIN+"><figure style='padding: 20px 10px 30px 10px'>
-<img src="/img/2.JPG" alt="Selahatin" />
+<div style='display: flex; align-items: stretch;'>
+<a style="flex: 0 1 50%" href="IT/search003d.html?utf8=%E2%9C%93&amp;q=SELAHATIN+"><figure style='padding: 20px 10px 30px 10px; margin: 0; height: 100%; display: flex; align-items: stretch;'>
+<img src="/img/2.JPG" alt="Selahatin" style='width: 100%; height: 100%; object-fit: cover;' />
 </figure>
-</a><a style="flex: 0 1 50%" href="IT/searchf238.html?utf8=%E2%9C%93&amp;q=duvet"><figure style='padding: 20px 10px 30px 10px'>
-<img src="https://cdn.rickowens.eu/home_page_images/144030/13.10.25_-_HP_MOBILE_DUVET.jpg?1764758736" alt="13.10.25   hp mobile duvet" />
+</a><a style="flex: 0 1 50%" href="IT/searchf238.html?utf8=%E2%9C%93&amp;q=duvet"><figure style='padding: 20px 10px 30px 10px; margin: 0; height: 100%; display: flex; align-items: stretch;'>
+<img src="/img/3.JPG" alt="Image 3" style='width: 100%; height: 100%; object-fit: cover;' />
 </figure>
 </a></div>
 <div style='display: flex;'>
 <a style="flex: 0 1 50%" href="IT/search5d76.html?utf8=%E2%9C%93&amp;q=JAPAN"><figure style='padding: 20px 10px 30px 10px'>
-<img src="https://cdn.rickowens.eu/home_page_images/143740/04.11.2025_HP_MOBILE_MADE_IN_JP.png?1764758448" alt="04.11.2025 hp mobile made in jp" />
+<img src="/img/4.JPG" alt="Image 4" />
 </figure>
 </a><a style="flex: 0 1 50%" href="IT/men/products/rh0000009cndapp-09.html"><figure style='padding: 20px 10px 30px 10px'>
 <img src="https://cdn.rickowens.eu/home_page_images/144203/18.11.25_CANDLE_MOBILE_HP.png?1764758897" alt="18.11.25 candle mobile hp" />

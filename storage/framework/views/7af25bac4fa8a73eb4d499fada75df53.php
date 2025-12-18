@@ -31,7 +31,7 @@ if(typeof window[n]!=="function"){window[n]=e;if(window.addEventListener){window
   }
 </style>
 <meta charset='utf-8'>
-<title>Rick Owens</title>
+<title>Creative Agency</title>
 <meta name="keywords" content="RICK OWENS, RICK OWENS ONLINE, RICK OWENS SHOP, RICKOWENS.EU, DRKSHDW, RICK OWENS SNEAKERS, GEOBASKET, RICK OWENS JACKETS, RICK OWENS SHOES, RICK OWENS ADIDAS," />
 <meta name="description" content="Shop the latest Rick Owens menswear, womenswear, shoes and accessories now on the official Rick Owens online store with worldwide express shipping." />
 <meta name="csrf-param" content="authenticity_token" />
