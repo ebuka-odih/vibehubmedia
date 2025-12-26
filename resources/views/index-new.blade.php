@@ -24,7 +24,7 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#portfolio" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition">Portfolio</a>
+                        <a href="{{ route('home') }}" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition">Portfolio</a>
                         <a href="#social" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition">Social Media</a>
                         <a href="{{ route('contact') }}" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition">Contact</a>
                         <a href="#about" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition">About Us</a>
@@ -49,7 +49,7 @@
         <!-- Mobile Menu -->
         <div x-show="open" x-cloak class="md:hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-                <a href="#portfolio" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Portfolio</a>
+                <a href="{{ route('home') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Portfolio</a>
                 <a href="#social" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Social Media</a>
                 <a href="{{ route('contact') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact</a>
                 <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About Us</a>
@@ -155,7 +155,7 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#portfolio" class="hover:text-white transition">Portfolio</a></li>
+                        <li><a href="{{ route('home') }}" class="hover:text-white transition">Portfolio</a></li>
                         <li><a href="#social" class="hover:text-white transition">Social Media</a></li>
                         <li><a href="{{ route('contact') }}" class="hover:text-white transition">Contact</a></li>
                     </ul>

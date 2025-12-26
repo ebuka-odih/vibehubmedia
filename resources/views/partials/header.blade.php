@@ -101,7 +101,7 @@ Menu
 </span>
 </header>
 <section class='container'>
-<a class='js-submenu-link' href='#' target=''>Portfolio</a>
+<a class='js-submenu-link' href='{{ route("home") }}' target=''>Portfolio</a>
 
 </section>
 <section class='container'>

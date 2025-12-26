@@ -144,7 +144,7 @@
 <aside>
 <ul>
 <li class=''>
-<a href="#">Portfolio</a>
+<a href="{{ route('home') }}">Portfolio</a>
 </li>
 <li class=''>
 <a href="#">Social media</a>

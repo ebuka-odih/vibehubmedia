@@ -64,7 +64,7 @@
 <li class='main-menu js-home-main-menu'>
 <span>Menu</span>
 <div class='submenu'>
-<a class='js-submenu-link' href='#' target=''>Portfolio</a>
+<a class='js-submenu-link' href='{{ route("home") }}' target=''>Portfolio</a>
 
 <a class='js-submenu-link' href='#' target=''>Social media</a>
 
