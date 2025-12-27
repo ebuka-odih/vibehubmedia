@@ -80,9 +80,11 @@
 </ul>
 </li>
 <li>
+<a href="{{ route('home') }}" title="Vibe Hub Media">
 <figure>
 <img src="{{ asset('img/logo.png') }}" alt="Vibe Hub Media Logo" width="300" height="50" style="object-fit: contain;">
 </figure>
+</a>
 </li>
 </ul>
 </nav>
