@@ -97,13 +97,10 @@
     }
   }
   
-  /* Show desktop logo on larger screens, hide mobile logo */
+  /* Hide logo container on desktop and iPad */
   @media (min-width: 769px) {
-    header.logo img.logo-desktop {
-      display: block;
-    }
-    header.logo img.logo-mobile {
-      display: none;
+    header.logo {
+      display: none !important;
     }
   }
 </style>
@@ -175,7 +172,7 @@ Menu
 </span>
 </header>
 <section class='container'>
-<a class='js-submenu-link' href='{{ route("home") }}' target=''>Portfolio</a>
+<a class='js-submenu-link' href='{{ route("portfolio") }}' target=''>Portfolio</a>
 
 </section>
 <section class='container'>

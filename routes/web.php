@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Models\Media;
+use App\Models\PortfolioItem;
 
 // Index route - serves the converted index.php as a Blade view
 Route::get('/', function () {
@@ -30,11 +31,25 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+// Portfolio page route
+Route::get('/portfolio', function () {
+    // Get portfolio items from database, ordered by display_order
+    $portfolioItems = PortfolioItem::orderBy('display_order')->get();
+    
+    return view('portfolio', [
+        'portfolioItems' => $portfolioItems,
+    ]);
+})->name('portfolio');
+
 // Admin routes
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/media', [AdminController::class, 'create'])->name('media.create');
     Route::post('/media', [AdminController::class, 'store'])->name('media.store');
     Route::delete('/media/section/{section}', [AdminController::class, 'destroy'])->name('media.destroy');
+    
+    // Portfolio item routes
+    Route::post('/portfolio-items', [AdminController::class, 'storePortfolioItem'])->name('portfolio-items.store');
+    Route::delete('/portfolio-items/{id}', [AdminController::class, 'destroyPortfolioItem'])->name('portfolio-items.destroy');
 });
 

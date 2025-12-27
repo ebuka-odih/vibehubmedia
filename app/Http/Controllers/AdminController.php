@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Media;
+use App\Models\PortfolioItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -43,8 +44,12 @@ class AdminController extends Controller
                 ->first();
         }
 
+        // Get all portfolio items ordered by display_order
+        $portfolioItems = PortfolioItem::orderBy('display_order')->get();
+
         return view('admin.media.upload', [
             'sectionMedia' => $sectionMedia,
+            'portfolioItems' => $portfolioItems,
         ]);
     }
 
@@ -117,6 +122,67 @@ class AdminController extends Controller
 
         return redirect()->route('admin.media.create')
             ->with('success', "Section {$section} restored to default image!");
+    }
+
+    /**
+     * Store a new portfolio item.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function storePortfolioItem(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:10240', // 10MB max
+        ]);
+
+        $file = $request->file('file');
+        $originalFilename = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
+        $filename = Str::random(40) . '.' . $extension;
+
+        // Store in public/storage/media directory
+        $path = $file->storeAs('media', $filename, 'public');
+
+        // Get the highest display_order and increment by 1
+        $maxOrder = PortfolioItem::max('display_order') ?? 0;
+
+        // Create new portfolio item
+        PortfolioItem::create([
+            'title' => $request->input('title'),
+            'filename' => $filename,
+            'original_filename' => $originalFilename,
+            'path' => $path,
+            'mime_type' => $file->getMimeType(),
+            'size' => $file->getSize(),
+            'display_order' => $maxOrder + 1,
+        ]);
+
+        return redirect()->route('admin.media.create')
+            ->with('success', 'Portfolio item added successfully!');
+    }
+
+    /**
+     * Delete a portfolio item.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroyPortfolioItem($id)
+    {
+        $portfolioItem = PortfolioItem::findOrFail($id);
+
+        // Delete file from storage
+        if (Storage::disk('public')->exists($portfolioItem->path)) {
+            Storage::disk('public')->delete($portfolioItem->path);
+        }
+
+        // Delete record
+        $portfolioItem->delete();
+
+        return redirect()->route('admin.media.create')
+            ->with('success', 'Portfolio item deleted successfully!');
     }
 
 }

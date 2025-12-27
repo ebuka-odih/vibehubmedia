@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-    <title>Section Media Management - Admin</title>
+    <title>Media Management - Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
@@ -17,7 +17,7 @@
                         <a href="<?php echo e(route('admin.dashboard')); ?>" class="text-gray-600 hover:text-gray-800">
                             ← Dashboard
                         </a>
-                        <h1 class="text-2xl font-bold text-gray-900">Section Media Management</h1>
+                        <h1 class="text-2xl font-bold text-gray-900">Media Management</h1>
                     </div>
                     <div class="flex items-center">
                         <a href="<?php echo e(route('home')); ?>" class="text-gray-600 hover:text-gray-800">
@@ -47,6 +47,22 @@
                 </div>
             <?php endif; ?>
 
+            <!-- Tabs -->
+            <div class="bg-white rounded-lg shadow mb-8">
+                <div class="border-b border-gray-200">
+                    <nav class="-mb-px flex space-x-8 px-6" aria-label="Tabs">
+                        <button onclick="switchTab('sections')" id="tab-sections" class="tab-button border-b-2 border-blue-500 py-4 px-1 text-sm font-medium text-blue-600">
+                            Section Media
+                        </button>
+                        <button onclick="switchTab('portfolio')" id="tab-portfolio" class="tab-button border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                            Portfolio Items
+                        </button>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Section Media Tab Content -->
+            <div id="tab-content-sections" class="tab-content">
             <!-- Upload Form -->
             <div class="bg-white rounded-lg shadow mb-8">
                 <div class="px-6 py-4 border-b border-gray-200">
@@ -157,8 +173,106 @@
                     </div>
                 </div>
             </div>
+            </div>
+
+            <!-- Portfolio Items Tab Content -->
+            <div id="tab-content-portfolio" class="tab-content hidden">
+                <!-- Portfolio Items Upload Form -->
+                <div class="bg-white rounded-lg shadow mb-8">
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <h2 class="text-lg font-semibold text-gray-900">Add New Portfolio Item</h2>
+                    </div>
+                    <div class="p-6">
+                        <form action="<?php echo e(route('admin.portfolio-items.store')); ?>" method="POST" enctype="multipart/form-data" class="space-y-4">
+                            <?php echo csrf_field(); ?>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
+                                        Title *
+                                    </label>
+                                    <input type="text" name="title" id="title" value="<?php echo e(old('title')); ?>" required
+                                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Enter portfolio item title">
+                                    <p class="mt-1 text-sm text-gray-500">Title will be displayed on the portfolio page</p>
+                                </div>
+                                <div>
+                                    <label for="portfolio_file" class="block text-sm font-medium text-gray-700 mb-2">
+                                        Image File *
+                                    </label>
+                                    <input type="file" name="file" id="portfolio_file" accept="image/*" required
+                                        class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                                    <p class="mt-1 text-sm text-gray-500">Accepted formats: JPEG, PNG, JPG, GIF, WEBP (Max: 10MB)</p>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                    Add Portfolio Item
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Portfolio Items List -->
+                <div class="bg-white rounded-lg shadow">
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <h2 class="text-lg font-semibold text-gray-900">Portfolio Items</h2>
+                        <p class="text-sm text-gray-500 mt-1">Current portfolio items displayed on the portfolio page.</p>
+                    </div>
+                    <div class="p-6">
+                        <?php if($portfolioItems->count() > 0): ?>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <?php $__currentLoopData = $portfolioItems; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <div class="border rounded-lg overflow-hidden">
+                                        <div class="relative" style="padding-bottom: 75%;">
+                                            <img src="<?php echo e($item->url); ?>" alt="<?php echo e($item->title); ?>" class="absolute top-0 left-0 w-full h-full object-cover">
+                                        </div>
+                                        <div class="p-4 bg-gray-50">
+                                            <h3 class="font-semibold text-gray-900 mb-2"><?php echo e($item->title); ?></h3>
+                                            <form action="<?php echo e(route('admin.portfolio-items.destroy', $item->id)); ?>" method="POST" onsubmit="return confirm('Are you sure you want to delete this portfolio item?');">
+                                                <?php echo csrf_field(); ?>
+                                                <?php echo method_field('DELETE'); ?>
+                                                <button type="submit" class="w-full text-xs bg-red-600 text-white px-3 py-2 rounded hover:bg-red-700">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </div>
+                        <?php else: ?>
+                            <div class="text-center py-12">
+                                <p class="text-gray-500">No portfolio items yet. Add your first item above.</p>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            // Remove active styling from all tabs
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('border-blue-500', 'text-blue-600');
+                button.classList.add('border-transparent', 'text-gray-500');
+            });
+
+            // Show selected tab content
+            document.getElementById('tab-content-' + tabName).classList.remove('hidden');
+
+            // Add active styling to selected tab
+            const activeTab = document.getElementById('tab-' + tabName);
+            activeTab.classList.remove('border-transparent', 'text-gray-500');
+            activeTab.classList.add('border-blue-500', 'text-blue-600');
+        }
+    </script>
 </body>
 </html>
 <?php /**PATH /Users/gnosis/Herd/vibehubmedia/resources/views/admin/media/upload.blade.php ENDPATH**/ ?>

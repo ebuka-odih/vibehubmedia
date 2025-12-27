@@ -15,6 +15,7 @@
     background: white;
     margin-top: 0 !important;
     padding-top: 1rem !important;
+    max-height: 120px;
   }
   
   .js-home-page-menu-header > ul {
@@ -64,7 +65,7 @@
 <li class='main-menu js-home-main-menu'>
 <span>Menu</span>
 <div class='submenu'>
-<a class='js-submenu-link' href='{{ route("home") }}' target=''>Portfolio</a>
+<a class='js-submenu-link' href='{{ route("portfolio") }}' target=''>Portfolio</a>
 
 <a class='js-submenu-link' href='#' target=''>Social media</a>
 
