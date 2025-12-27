@@ -23,6 +23,12 @@
                         <a href="{{ route('home') }}" class="text-gray-600 hover:text-gray-800">
                             View Site
                         </a>
+                        <form action="{{ route('admin.logout') }}" method="POST" class="inline">
+                            @csrf
+                            <button type="submit" class="text-red-600 hover:text-red-800 font-medium">
+                                Logout
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -11,6 +11,55 @@ use Illuminate\Support\Str;
 class AdminController extends Controller
 {
     /**
+     * Display the login form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showLogin()
+    {
+        // If already authenticated, redirect to dashboard
+        if (session()->has('admin_authenticated')) {
+            return redirect()->route('admin.dashboard');
+        }
+
+        return view('admin.login');
+    }
+
+    /**
+     * Handle login request.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function login(Request $request)
+    {
+        $request->validate([
+            'code' => 'required|string|size:6',
+        ]);
+
+        // Check if the code matches (421077)
+        if ($request->input('code') === '421077') {
+            session(['admin_authenticated' => true]);
+            return redirect()->route('admin.dashboard')
+                ->with('success', 'Welcome! You have successfully logged in.');
+        }
+
+        return back()->withErrors(['code' => 'Invalid access code.'])->withInput();
+    }
+
+    /**
+     * Handle logout request.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout()
+    {
+        session()->forget('admin_authenticated');
+        return redirect()->route('admin.login')
+            ->with('success', 'You have been logged out successfully.');
+    }
+
+    /**
      * Display the admin dashboard.
      *
      * @return \Illuminate\View\View

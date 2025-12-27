@@ -1,0 +1,63 @@
+# Laravel specific files
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+
+/storage/framework/*
+!/storage/framework/.gitignore
+
+/storage/logs/*
+!/storage/logs/.gitignore
+
+# Compiled files
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/testing/*
+!/storage/framework/testing/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+
+# Environment files
+.env
+.env.backup
+.env.production
+.env.local
+.env.*.local
+
+# Composer
+/vendor/
+
+# Node modules
+/node_modules/
+/public/build/
+/public/hot
+/public/storage
+!/public/storage/.gitignore
+
+# NPM/Yarn
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Testing
+/coverage/
+.phpunit.result.cache
+
+# Build files
+/public/.htaccess
+/public/index.php
+
+# Logs
+*.log
+

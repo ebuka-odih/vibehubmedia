@@ -19,10 +19,19 @@
                         </a>
                         <h1 class="text-2xl font-bold text-gray-900">Media Management</h1>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center space-x-4">
+                        <a href="{{ route('admin.dashboard') }}" class="text-gray-600 hover:text-gray-800">
+                            Dashboard
+                        </a>
                         <a href="{{ route('home') }}" class="text-gray-600 hover:text-gray-800">
                             View Site
                         </a>
+                        <form action="{{ route('admin.logout') }}" method="POST" class="inline">
+                            @csrf
+                            <button type="submit" class="text-red-600 hover:text-red-800 font-medium">
+                                Logout
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -41,8 +41,15 @@ Route::get('/portfolio', function () {
     ]);
 })->name('portfolio');
 
-// Admin routes
+// Admin login routes (no middleware - accessible to all)
 Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/login', [AdminController::class, 'showLogin'])->name('login');
+    Route::post('/login', [AdminController::class, 'login'])->name('login.post');
+    Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
+});
+
+// Admin routes (protected by authentication)
+Route::prefix('admin')->name('admin.')->middleware('admin.auth')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/media', [AdminController::class, 'create'])->name('media.create');
     Route::post('/media', [AdminController::class, 'store'])->name('media.store');
