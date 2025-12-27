@@ -33,6 +33,79 @@
     vertical-align: middle;
     float: left;
   }
+  
+  /* Mobile logo styling */
+  header.logo img {
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Mobile header layout - menu icon and logo on same line */
+  @media (max-width: 768px) {
+    /* Simple flex container - no position relative needed */
+    #header {
+      display: flex;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+    }
+    
+    /* Menu button - simple flex item, order to place it first visually */
+    #header .button-menu-mobile {
+      order: -1;
+      flex: 0 0 auto;
+      float: left;
+      z-index: 10;
+      width: 32px;
+      height: 41px;
+      margin: 7.5px 0 7.5px 10px;
+      padding: 0;
+    }
+    
+    /* Logo container - centered, takes remaining space */
+    header.logo {
+      order: 0;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      float: none;
+      /* margin: 0; */
+      padding: 0;
+      margin-top: -25px;
+    }
+    
+    /* Hide desktop logo on mobile */
+    header.logo img.logo-desktop {
+      display: none;
+    }
+    
+    /* Mobile logo - sized appropriately */
+    header.logo img.logo-mobile {
+      display: block;
+      width: 140px;
+      height: 140px;
+      max-width: 180px;
+      object-fit: contain;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Reduce top-bar spacing on mobile */
+    .top-bar,
+    .top-bar-right {
+      display: none;
+    }
+  }
+  
+  /* Show desktop logo on larger screens, hide mobile logo */
+  @media (min-width: 769px) {
+    header.logo img.logo-desktop {
+      display: block;
+    }
+    header.logo img.logo-mobile {
+      display: none;
+    }
+  }
 </style>
 <header id='header'>
 <a class='opacity-overlay' href='#close' id='overlay' title='close'></a>
@@ -76,7 +149,8 @@
 </ul>
 <header class='logo'>
 <a title="Vibe Hub Media" href="{{ route('home') }}">
-<img src="{{ asset('img/logo.png') }}" alt="Vibe Hub Media Logo" width="300" height="50" style="object-fit: contain;">
+<img src="{{ asset('img/logo.png') }}" alt="Vibe Hub Media Logo" class="logo-desktop" width="300" height="50" style="object-fit: contain;">
+<img src="{{ asset('img/logo-mobile.png') }}" alt="Vibe Hub Media Logo" class="logo-mobile" width="140" height="140" style="object-fit: contain;">
 </a></header>
 <button class='js-mobile-menu-toggle button-menu-mobile'>
 <!-- asset: rickowens/menu.svg -->

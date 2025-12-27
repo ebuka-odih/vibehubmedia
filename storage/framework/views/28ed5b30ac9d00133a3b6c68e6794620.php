@@ -142,7 +142,7 @@
 <aside>
 <ul>
 <li class=''>
-<a href="#">Portfolio</a>
+<a href="<?php echo e(route('home')); ?>">Portfolio</a>
 </li>
 <li class=''>
 <a href="#">Social media</a>
