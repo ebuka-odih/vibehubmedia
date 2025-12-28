@@ -66,6 +66,9 @@
                         <button onclick="switchTab('portfolio')" id="tab-portfolio" class="tab-button border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
                             Portfolio Items
                         </button>
+                        <button onclick="switchTab('collab')" id="tab-collab" class="tab-button border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                            Collab Items
+                        </button>
                     </nav>
                 </div>
             </div>
@@ -251,6 +254,80 @@
                         @else
                             <div class="text-center py-12">
                                 <p class="text-gray-500">No portfolio items yet. Add your first item above.</p>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collab Items Tab Content -->
+            <div id="tab-content-collab" class="tab-content hidden">
+                <!-- Collab Items Upload Form -->
+                <div class="bg-white rounded-lg shadow mb-8">
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <h2 class="text-lg font-semibold text-gray-900">Add New Collab Item</h2>
+                    </div>
+                    <div class="p-6">
+                        <form action="{{ route('admin.collab-items.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
+                            @csrf
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="collab_title" class="block text-sm font-medium text-gray-700 mb-2">
+                                        Title *
+                                    </label>
+                                    <input type="text" name="title" id="collab_title" value="{{ old('title') }}" required
+                                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Enter collab item title">
+                                    <p class="mt-1 text-sm text-gray-500">Title will be displayed on the collab page</p>
+                                </div>
+                                <div>
+                                    <label for="collab_file" class="block text-sm font-medium text-gray-700 mb-2">
+                                        Image File *
+                                    </label>
+                                    <input type="file" name="file" id="collab_file" accept="image/*" required
+                                        class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                                    <p class="mt-1 text-sm text-gray-500">Accepted formats: JPEG, PNG, JPG, GIF, WEBP (Max: 10MB)</p>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                    Add Collab Item
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Collab Items List -->
+                <div class="bg-white rounded-lg shadow">
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <h2 class="text-lg font-semibold text-gray-900">Collab Items</h2>
+                        <p class="text-sm text-gray-500 mt-1">Current collab items displayed on the collab page.</p>
+                    </div>
+                    <div class="p-6">
+                        @if($collabItems->count() > 0)
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                @foreach($collabItems as $item)
+                                    <div class="border rounded-lg overflow-hidden">
+                                        <div class="relative" style="padding-bottom: 75%;">
+                                            <img src="{{ $item->url }}" alt="{{ $item->title }}" class="absolute top-0 left-0 w-full h-full object-cover">
+                                        </div>
+                                        <div class="p-4 bg-gray-50">
+                                            <h3 class="font-semibold text-gray-900 mb-2">{{ $item->title }}</h3>
+                                            <form action="{{ route('admin.collab-items.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this collab item?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="w-full text-xs bg-red-600 text-white px-3 py-2 rounded hover:bg-red-700">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @else
+                            <div class="text-center py-12">
+                                <p class="text-gray-500">No collab items yet. Add your first item above.</p>
                             </div>
                         @endif
                     </div>

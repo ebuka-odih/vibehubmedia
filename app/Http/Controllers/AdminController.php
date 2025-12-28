@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Media;
 use App\Models\PortfolioItem;
+use App\Models\CollabItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -96,9 +97,13 @@ class AdminController extends Controller
         // Get all portfolio items ordered by display_order
         $portfolioItems = PortfolioItem::orderBy('display_order')->get();
 
+        // Get all collab items ordered by display_order
+        $collabItems = CollabItem::orderBy('display_order')->get();
+
         return view('admin.media.upload', [
             'sectionMedia' => $sectionMedia,
             'portfolioItems' => $portfolioItems,
+            'collabItems' => $collabItems,
         ]);
     }
 
@@ -232,6 +237,67 @@ class AdminController extends Controller
 
         return redirect()->route('admin.media.create')
             ->with('success', 'Portfolio item deleted successfully!');
+    }
+
+    /**
+     * Store a new collab item.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function storeCollabItem(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:10240', // 10MB max
+        ]);
+
+        $file = $request->file('file');
+        $originalFilename = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
+        $filename = Str::random(40) . '.' . $extension;
+
+        // Store in public/storage/media directory
+        $path = $file->storeAs('media', $filename, 'public');
+
+        // Get the highest display_order and increment by 1
+        $maxOrder = CollabItem::max('display_order') ?? 0;
+
+        // Create new collab item
+        CollabItem::create([
+            'title' => $request->input('title'),
+            'filename' => $filename,
+            'original_filename' => $originalFilename,
+            'path' => $path,
+            'mime_type' => $file->getMimeType(),
+            'size' => $file->getSize(),
+            'display_order' => $maxOrder + 1,
+        ]);
+
+        return redirect()->route('admin.media.create')
+            ->with('success', 'Collab item added successfully!');
+    }
+
+    /**
+     * Delete a collab item.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroyCollabItem($id)
+    {
+        $collabItem = CollabItem::findOrFail($id);
+
+        // Delete file from storage
+        if (Storage::disk('public')->exists($collabItem->path)) {
+            Storage::disk('public')->delete($collabItem->path);
+        }
+
+        // Delete record
+        $collabItem->delete();
+
+        return redirect()->route('admin.media.create')
+            ->with('success', 'Collab item deleted successfully!');
     }
 
 }

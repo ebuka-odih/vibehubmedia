@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Models\Media;
 use App\Models\PortfolioItem;
+use App\Models\CollabItem;
 
 // Index route - serves the converted index.php as a Blade view
 Route::get('/', function () {
@@ -41,6 +42,16 @@ Route::get('/portfolio', function () {
     ]);
 })->name('portfolio');
 
+// Collab page route
+Route::get('/collab', function () {
+    // Get collab items from database, ordered by display_order
+    $collabItems = CollabItem::orderBy('display_order')->get();
+    
+    return view('collab', [
+        'collabItems' => $collabItems,
+    ]);
+})->name('collab');
+
 // Admin login routes (no middleware - accessible to all)
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [AdminController::class, 'showLogin'])->name('login');
@@ -58,5 +69,9 @@ Route::prefix('admin')->name('admin.')->middleware('admin.auth')->group(function
     // Portfolio item routes
     Route::post('/portfolio-items', [AdminController::class, 'storePortfolioItem'])->name('portfolio-items.store');
     Route::delete('/portfolio-items/{id}', [AdminController::class, 'destroyPortfolioItem'])->name('portfolio-items.destroy');
+    
+    // Collab item routes
+    Route::post('/collab-items', [AdminController::class, 'storeCollabItem'])->name('collab-items.store');
+    Route::delete('/collab-items/{id}', [AdminController::class, 'destroyCollabItem'])->name('collab-items.destroy');
 });
 
