@@ -67,13 +67,13 @@
 <div class='submenu'>
 <a class='js-submenu-link' href='{{ route("portfolio") }}' target=''>Portfolio</a>
 
-<a class='js-submenu-link' href='#' target=''>Social media</a>
+<a class='js-submenu-link' href='https://instagram.com/vibehub.media' target='_blank'>Social media</a>
 
 <a class='js-submenu-link' href='{{ route("contact") }}' target=''>Contact</a>
 
 <a class='js-submenu-link' href='{{ route("about") }}' target=''>About us</a>
 
-<a class='js-submenu-link' href='#' target=''>Collabs</a>
+<a class='js-submenu-link' href='{{ route("collab") }}' target=''>Collabs</a>
 
 </div>
 </li>

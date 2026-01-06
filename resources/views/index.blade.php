@@ -147,16 +147,16 @@
 <a href="{{ route('portfolio') }}">Portfolio</a>
 </li>
 <li class=''>
-<a href="#">Social media</a>
+<a href="https://instagram.com/vibehub.media" target="_blank">Social media</a>
 </li>
 <li class=''>
 <a href="{{ route('contact') }}">Contact</a>
 </li>
 <li class=''>
-<a href="#">About us</a>
+<a href="{{ route('about') }}">About us</a>
 </li>
 <li class=''>
-<a href="#">Collabs</a>
+<a href="{{ route('collab') }}">Collabs</a>
 </li>
 </ul>
 </aside>

@@ -176,7 +176,7 @@ Menu
 
 </section>
 <section class='container'>
-<a class='js-submenu-link' href='#' target=''>Social media</a>
+<a class='js-submenu-link' href='https://instagram.com/vibehub.media' target='_blank'>Social media</a>
 
 </section>
 <section class='container'>
@@ -188,7 +188,7 @@ Menu
 
 </section>
 <section class='container'>
-<a class='js-submenu-link' href='#' target=''>Collabs</a>
+<a class='js-submenu-link' href='{{ route("collab") }}' target=''>Collabs</a>
 
 </section>
 <section class='container mobile-extra js-account' data-signed-in-html='&lt;a href=_/en/ZA/account__My.html Account&lt;/a&gt;&lt;br&gt;&lt;a href=_/en/ZA/logout__Logout_/a_%27.html data-signed-out-html='&lt;a href=_/en/ZA/login__Login_/a_%27.html>

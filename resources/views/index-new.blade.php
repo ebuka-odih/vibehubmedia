@@ -25,10 +25,10 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="{{ route('portfolio') }}" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition">Portfolio</a>
-                        <a href="#social" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition">Social Media</a>
+                        <a href="https://instagram.com/vibehub.media" target="_blank" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition">Social Media</a>
                         <a href="{{ route('contact') }}" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition">Contact</a>
-                        <a href="#about" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition">About Us</a>
-                        <a href="#collabs" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition">Collabs</a>
+                        <a href="{{ route('about') }}" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition">About Us</a>
+                        <a href="{{ route('collab') }}" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition">Collabs</a>
                     </div>
                 </div>
 
@@ -50,10 +50,10 @@
         <div x-show="open" x-cloak class="md:hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
                 <a href="{{ route('portfolio') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Portfolio</a>
-                <a href="#social" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Social Media</a>
+                <a href="https://instagram.com/vibehub.media" target="_blank" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Social Media</a>
                 <a href="{{ route('contact') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact</a>
-                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About Us</a>
-                <a href="#collabs" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Collabs</a>
+                <a href="{{ route('about') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About Us</a>
+                <a href="{{ route('collab') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Collabs</a>
             </div>
         </div>
     </nav>
@@ -156,16 +156,15 @@
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="{{ route('portfolio') }}" class="hover:text-white transition">Portfolio</a></li>
-                        <li><a href="#social" class="hover:text-white transition">Social Media</a></li>
+                        <li><a href="https://instagram.com/vibehub.media" target="_blank" class="hover:text-white transition">Social Media</a></li>
                         <li><a href="{{ route('contact') }}" class="hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Connect</h3>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">Instagram</a></li>
-                        <li><a href="#" class="hover:text-white transition">Twitter</a></li>
-                        <li><a href="#" class="hover:text-white transition">LinkedIn</a></li>
+                        <li><a href="https://instagram.com/vibehub.media" target="_blank" class="hover:text-white transition">Instagram</a></li>
+                        <li><a href="https://tiktok.com/@vibehubmedia" target="_blank" class="hover:text-white transition">TikTok</a></li>
                     </ul>
                 </div>
             </div>
